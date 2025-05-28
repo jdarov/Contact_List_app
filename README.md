@@ -7,7 +7,8 @@ This is my first CLI Python solo project. In this I will be building/updating an
 prepare a JSON file holding all your contact info. You can then run the program to view your contacts, add a new contact, 
 and save it to the list.
 
+05/27/2025 - Added spot for emails, optional
+
 Future features:
-    Additional spot for emails
     Remove contacts from list 
     Won't save duplicates if name/number/email already in list

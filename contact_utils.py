@@ -34,9 +34,10 @@ def save_contacts(contacts, file_path='contact_list.json'):
     except IOError as e:
         print(f"Error saving contacts to file: {e}")
 
-def add_contact(contacts, name, phone):
+def add_contact(contacts, name, phone, email):
     """
     Add a new contact to the list.
+    If contact with the same name already exists, return the existing list without adding.
 
     :param contacts: List of existing contacts.
     :param name: Name of the contact.
@@ -44,9 +45,16 @@ def add_contact(contacts, name, phone):
     :param email: Email address of the contact.
     :return: Updated list of contacts with the new contact added.
     """
+
+    for c in contacts:
+        if c['name'] == name:
+            print(f"Contact with name '{name}' already exists.")
+            return contacts
     new_contact = {
         'name': name,
         'phone': phone,
+        'email': email
     }
     contacts.append(new_contact)
+    print(f"Contact '{name}' added successfully.")
     return contacts

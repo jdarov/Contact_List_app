@@ -15,15 +15,15 @@ def main():
         if choice == '1':
             if contacts:
                 for idx, contact in enumerate(contacts, start=1):
-                    print(f"{idx}. {contact['name']} - {contact['phone']}")
+                    print(f"{idx}. {contact['name']} - {contact['phone']} ({contact.get('email', 'No email for this contact')})")
             else:
                 print("No contacts available.")
         
         elif choice == '2':
-            name = input("Enter contact name: ")
-            phone = input("Enter contact phone: ")
-            contacts = add_contact(contacts, name, phone)
-            print(f"Contact '{name}' added successfully.")
+            name = input("Enter contact name: ").strip().title()
+            phone = input("Enter contact phone: ").strip()
+            email = input("Enter contact email (optional): ").strip()
+            contacts = add_contact(contacts, name, phone, email)
         
         elif choice == '3':
             save_contacts(contacts)
